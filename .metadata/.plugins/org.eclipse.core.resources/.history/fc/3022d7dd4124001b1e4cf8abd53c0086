@@ -1,0 +1,99 @@
+package br.com.epiousion.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.epiousion.bean.Livro;
+
+import br.com.epiousion.conexao.ConexaoDatasource;
+
+public class LivroDAO {
+
+	public boolean inserir(String id, String nome) {
+		
+		Connection c = ConexaoDatasource.getConexao();
+		PreparedStatement ps;
+		
+		try {
+			
+			ps = c.prepareStatement("insert into livros(idLivro,nomeLivro) values (?,?)");
+			
+			ps.setString(1, id);
+			ps.setString(2, nome);
+			int Nlinhas = ps.executeUpdate();
+			
+			if(Nlinhas > 0) {
+				return true;
+			} else {
+				return false;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public void remover(String id) {
+		Connection c = ConexaoDatasource.getConexao();
+		PreparedStatement ps;
+		
+		try {
+			ps = c.prepareStatement("delete from livros where idLivro = ?");
+			
+			ps.setString(1, id);
+			
+			ps.executeUpdate();
+			
+			c.close();
+			ps.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public List<Livro> disponiveis(){
+		
+		Connection c = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		List<Livro> livrosDisponiveis = new ArrayList<Livro>();
+		
+		try {
+			c = ConexaoDatasource.getConexao();
+			ps = c.prepareStatement("select * from library.livros");
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				Livro livro = new Livro();
+				livro.setId(rs.getString("idLivro"));
+				livro.setNome(rs.getString("nomeLivro"));
+				System.out.println(nome);
+				livrosDisponiveis.add(livro);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				c.close();
+				ps.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		return livrosDisponiveis;
+	}
+	
+}

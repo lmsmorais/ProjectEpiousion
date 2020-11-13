@@ -1,0 +1,9 @@
+package br.com.epiousion.bean;
+
+public class Emprestimo {
+	private String idLivro;
+	private String nomeLivro;
+	private String idUsuario;
+	private String nomeUsuario;
+	
+}

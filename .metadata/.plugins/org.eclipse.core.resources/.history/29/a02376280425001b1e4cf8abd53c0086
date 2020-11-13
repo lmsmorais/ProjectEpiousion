@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Realizar Emprestimo</title>
+</head>
+<body>
+	<strong>Realizar Emprestimo</strong>
+	<form method="post" action="EmprestimoServlet">
+			ID Livro: <input type="text" name="idLivro"/>
+			Nome do Livro: <input type="text" name="idLivro"/>
+			ID Usuario: <input type="text" name="idUsuario"/>
+			<input type="submit" value="Emprestar"/>
+		</form>
+</body>
+</html>

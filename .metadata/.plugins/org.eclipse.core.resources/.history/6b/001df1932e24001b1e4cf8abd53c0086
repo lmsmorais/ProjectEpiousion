@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html>
+    <head>
+        <title>Livros Disponíveis</title>
+        <meta charset='UTF-8'>
+    </head>
+    <body>
+        <H1>Livros Disponiveis</H1>
+    	<ul>
+            <c:forEach  items="${requestScope.livrosDisponiveis}" var="livro">
+                <li>1</li>
+                <li>2</li>
+            </c:forEach>
+		</ul>
+    </body>
+</html>

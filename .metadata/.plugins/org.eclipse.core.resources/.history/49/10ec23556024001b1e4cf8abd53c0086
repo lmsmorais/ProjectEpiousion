@@ -1,0 +1,27 @@
+package br.com.epiousion.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import br.com.epiousion.conexao.ConexaoDatasource;
+
+public class UsuarioDAO {
+	
+	public boolean inserir(String nomeUsuario, String senhaUsuario) {
+		Connection c = ConexaoDatasource.getConexao();
+		PreparedStatement ps;
+		
+		try {
+			ps = c.prepareStatement("insert into usuario(nomeUsuario, senhaUsuario) values (?,?)");
+			
+			ps.setString(1, nomeUsuario);
+			ps.setString(2, senhaUsuario);
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

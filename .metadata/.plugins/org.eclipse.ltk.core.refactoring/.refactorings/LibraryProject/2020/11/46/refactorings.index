@@ -1,0 +1,32 @@
+1604949464404	Move 'index.jsp' to 'WebContent'
+1604949884769	Delete element
+1604949969435	Delete element
+1604950005787	Delete element
+1604950057511	Rename package 'br.epiousion.conexao'
+1604950071202	Delete element
+1604951112960	Delete element
+1605018197710	Rename type 'Conexao'
+1605020041643	Move 'adicionarLivro.jsp' to 'WebContent'
+1605026244771	Rename type 'LivroServlet'
+1605026965285	Move 'removerLivro.jsp' to 'WebContent'
+1605029900770	Delete element
+1605030597263	Move 'livrosDisponiveis.jsp' to 'WebContent'
+1605035296964	Move 'jsp' to 'WEB-INF'
+1605035444844	Move 'jsp' to 'WebContent'
+1605036444116	Delete element
+1605036884809	Move 'livrosDisponiveis.jsp' to 'WebContent'
+1605112997606	Delete element
+1605113806106	Delete element
+1605121957137	Encapsulate field 'idLivro'
+1605121963935	Encapsulate field 'nomeLivro'
+1605127862194	Delete element
+1605127883130	Rename type 'UsuarioDAo'
+1605132441608	Move 'adicionarUsuario.jsp' to 'jsp'
+1605132604624	Move 'adicionarUsuario.jsp' to 'WebContent'
+1605192978044	Move 'realizarEmprestimo.jsp' to 'WebContent'
+1605199453085	Delete element
+1605200275342	Delete element
+1605201022800	Encapsulate field 'idEmprestimo'
+1605202351476	Move 'devolucao.jsp' to 'WebContent'
+1605203012066	Encapsulate field 'idUsuario'
+1605218446153	Move 'emprestimosUsuarioNormal.jsp' to 'WebContent'

@@ -1,0 +1,54 @@
+package br.com.epiousion.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import br.com.epiousion.conexao.ConexaoDatasource;
+
+public class LivroDAO {
+
+	public boolean inserir(String id, String nome) {
+		
+		Connection c = ConexaoDatasource.getConexao();
+		PreparedStatement ps;
+		
+		try {
+			
+			ps = c.prepareStatement("insert into livros(idLivro,nomeLivro) values (?,?)");
+			
+			ps.setString(1, id);
+			ps.setString(2, nome);
+			int Nlinhas = ps.executeUpdate();
+			
+			if(Nlinhas > 0) {
+				return true;
+			} else {
+				return false;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public void remover(String id) {
+		Connection c = ConexaoDatasource.getConexao();
+		PreparedStatement ps;
+		
+		try {
+			ps = c.prepareStatement("delete from livros where idLivro = ?");
+			
+			ps.setString(1, id);
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+}

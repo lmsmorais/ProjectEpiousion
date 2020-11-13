@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<html>
+    <head>
+        <title>Livros Disponíveis</title>
+        <meta charset='UTF-8'>
+    </head>
+    <body>
+        <H1>Livros Disponiveis</H1>
+        <TABLE width='700'>
+            <TR>
+                <TD>Id:</TD>
+                <TD>Nome:</TD>
+            </TR>
+            <c:forEach var="livro" items="${sessionScope.livrosDisponiveis}">
+                <c:out value="${livro.idLivro}"/>
+                <c:out value="${livro.nomeLivro}"/>
+            </c:forEach>
+        </TABLE>
+    </body>
+</html>

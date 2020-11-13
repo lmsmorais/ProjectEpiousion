@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<html>
+    <head>
+        <title>Livros Disponiveis</title>
+        <meta charset='UTF-8'>
+    </head>
+    <body>
+        <H3>Catalogo de Livros Disponíveis</H3>
+        <TABLE width='700'>
+            <TR class='tituloCampo'>
+                <TD>Id:</TD>
+                <TD>Nome:</TD>
+                
+            </TR>
+            <c:forEach var="disponiveis" items="${listaLivros}">
+                <TR>
+                    	<TD class='gridCampo'>${disponiveis.id}</TD>
+	                    <TD class='gridCampo'>${disponiveis.nome}</TD>
+	                    <TD>
+                    </TD>
+                </TR>
+            </c:forEach>
+        </TABLE>
+    </body>
+</html>

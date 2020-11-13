@@ -1,0 +1,11 @@
+INDEX VERSION 1.4+C:\Users\lmsmo\Desktop\projetoFinal\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3867398480.index
+2998917460.index
+974907576.index
+243073244.index
+1004683107.index
+44565227.index
+2940839577.index
+2686826047.index
+2450603659.index
+3849742423.index

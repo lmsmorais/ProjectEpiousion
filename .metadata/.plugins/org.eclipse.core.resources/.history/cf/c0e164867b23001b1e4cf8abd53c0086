@@ -1,0 +1,5 @@
+package br.com.epiousion.dao;
+
+public interface Livro {
+
+}

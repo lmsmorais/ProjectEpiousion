@@ -1,0 +1,11 @@
+package br.com.epiousion.teste;
+
+import br.com.epiousion.dao.LivroDAO;
+
+public class teste {
+	public static void main(String[] args) {
+		LivroDAO livro = new LivroDAO();
+		
+		System.out.println(livro.disponiveis());
+	}
+}

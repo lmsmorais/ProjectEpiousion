@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Usuario Administrador</title>
+</head>
+<body>
+	<h1>Usuario Administrador</h1>
+	
+	<A HREF='${pageContext.request.contextPath}/jsp/EmprestimosUsuarioAdmin.jsp'><button>Empréstimos Totais</button></A>
+	<p>
+	<A HREF='${pageContext.request.contextPath}/jsp/LivrosDisponiveis.jsp'><button>Livros Disponíveis</button></A>
+	<p>
+	<A HREF='${pageContext.request.contextPath}/jsp/RealizarEmprestimo.jsp'><button>Realizar Empréstimo</button></A>
+	<p>
+	<A HREF='${pageContext.request.contextPath}/jsp/Devolucao.jsp'><button>Devolução de Empréstimo</button></A>
+	<p>
+	<A HREF='${pageContext.request.contextPath}/jsp/adicionarLivro.jsp'><button>Adicionar Livro</button></A>
+	<p>
+	<A HREF='${pageContext.request.contextPath}/jsp/removerLivro.jsp'><button>Remover Livro</button></A>
+	
+	
+</body>
+</html>

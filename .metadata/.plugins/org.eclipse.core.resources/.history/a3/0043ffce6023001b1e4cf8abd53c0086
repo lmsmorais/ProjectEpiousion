@@ -1,0 +1,6 @@
+package br.com.epiousion.conexao;
+
+public class ConexaoDatasource {
+	
+	public static Connection InitialContext();
+}

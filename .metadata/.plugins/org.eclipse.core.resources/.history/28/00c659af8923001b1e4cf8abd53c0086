@@ -1,0 +1,23 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Livros Disponiveis</title>
+        <meta charset='UTF-8'>
+    </head>
+    <body>
+        <H3>Catalogo de Livros Disponíveis</H3>
+        <TABLE width='700'>
+            <c:forEach var="livro" items="${livros}">
+                <TR>
+                    	<TD >Id: ${livro.id}</TD>
+	                    <TD >Nome: ${livro.nome}</TD>
+	                    <TD>
+                    </TD>
+                </TR>
+            </c:forEach>
+        </TABLE>
+    </body>
+</html>
