@@ -33,13 +33,14 @@ public class EmprestimoUsuario extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("idUsuario");
-		
 		EmprestimoDAO emprestimo = new EmprestimoDAO();
 		List<Emprestimo> emprestimoUsuario = null;
 		
 		try {
-			emprestimoUsuario = emprestimo.emprestimoUsuario(Integer.valueOf(id));
+			
+			String usuario = (String) request.getSession().getAttribute("username");
+			
+			emprestimoUsuario = emprestimo.emprestimoUsuario(usuario);
 			
 			request.setAttribute("listaEmprestimoUsuario", emprestimoUsuario);
 			RequestDispatcher rd = request.getRequestDispatcher("emprestimosUsuarioNormal.jsp");

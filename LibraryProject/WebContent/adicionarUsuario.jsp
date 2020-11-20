@@ -9,8 +9,10 @@
 <h1>Adicionar Novo Usuário</h1>
 	<form method="post" action="AdicionarUsuarioServlet">
 		Nome: <input type="text" name="nomeUsuario"/>
-		Senha: <input type="text" name="senhaUsuario"/>
+		Senha: <input type="password" name="senhaUsuario"/>
 		<input type="submit" value="Adicionar"/>
 	</form>
+	<p>
+	<input type="button" value="Voltar" onClick="history.go(-1)">
 </body>
 </html>

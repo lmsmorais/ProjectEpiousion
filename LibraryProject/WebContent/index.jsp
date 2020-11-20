@@ -29,12 +29,5 @@
 				
 			</table>
 		</form>
-		<form method="post" action='${pageContext.request.contextPath}/adicionarUsuario.jsp'>
-		<table cellspacing="5" cellpadding="1" width=20%">
-			<tr>
-				<td><button type="submit">Novo Usuário</button></td>
-			</tr>		
-		</table>
-		</form>
 	</body>
 </html>

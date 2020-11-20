@@ -21,5 +21,7 @@
 	                </tr>
 	            </c:forEach>
 			</table>
+			<p>
+	<input type="button" value="Voltar" onClick="history.go(-1)">
     </body>
 </html>

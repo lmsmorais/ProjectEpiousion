@@ -8,5 +8,7 @@
 </head>
 <body>
 	<h1>Operação relizada com sucesso !!</h1>
+	<p>
+	<input type="button" value="Voltar ao menu" onClick="history.go(-2)">
 </body>
 </html>

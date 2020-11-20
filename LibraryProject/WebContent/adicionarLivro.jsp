@@ -12,5 +12,7 @@
 		Nome: <input type="text" name="nome"/>
 		<input type="submit" value="Adicionar"/>
 	</form>
+	<p>
+	<input type="button" value="Voltar" onClick="history.go(-1)">
 </body>
 </html>

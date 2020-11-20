@@ -12,5 +12,7 @@
 		Id: <input type="text" name="id"/>
 		<input type="submit" value="Remover"/>
 	</form>
+	<p>
+	<input type="button" value="Voltar" onClick="history.go(-1)">
 </body>
 </html>

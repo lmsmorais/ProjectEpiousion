@@ -7,5 +7,7 @@
 <title>Fail</title>
 </head>
 	<h1>A operação falhou !!</h1>
+	<p>
+	<input type="button" value="Tentar novamente" onClick="history.go(-1)">
 </body>
 </html>

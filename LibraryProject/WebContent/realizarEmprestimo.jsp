@@ -19,5 +19,7 @@
 			<br>
 			<input type="submit" value="Emprestar"/>
 		</form>
+		<p>
+	<input type="button" value="Voltar" onClick="history.go(-1)">
 </body>
 </html>

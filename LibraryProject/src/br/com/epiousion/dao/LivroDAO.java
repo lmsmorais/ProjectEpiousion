@@ -17,7 +17,7 @@ public class LivroDAO {
 	public boolean inserir(String id, String nome) {
 		
 		Connection c = ConexaoDatasource.getConexao();
-		PreparedStatement ps;
+		PreparedStatement ps = null;
 		
 		try {
 			
@@ -36,13 +36,21 @@ public class LivroDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}  finally {
+			try {
+				c.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
 		}
 		return false;
 	}
 	
 	public void remover(String id) {
 		Connection c = ConexaoDatasource.getConexao();
-		PreparedStatement ps;
+		PreparedStatement ps = null;
 		
 		try {
 			ps = c.prepareStatement("delete from livros where idLivro = ?");
@@ -57,6 +65,14 @@ public class LivroDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}  finally {
+			try {
+				c.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
 		}
 	}
 	
@@ -119,7 +135,16 @@ public class LivroDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		}   finally {
+			try {
+				c.close();
+				ps.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+		}
 		return false;
 	}
 

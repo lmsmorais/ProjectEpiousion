@@ -15,7 +15,7 @@ public class EmprestimoDAO {
 	
 	public boolean emprestimo(String idLivro, String nomeLivro, String idUsuario, String nomeUsuario) {
 		Connection c = ConexaoDatasource.getConexao();
-		PreparedStatement ps;
+		PreparedStatement ps = null;
 		
 		try {
 			ps = c.prepareStatement("insert into library.emprestimos (idLivro,nomeLivro,idUsuario,nomeUsuario) values (?,?,?,?)");
@@ -34,6 +34,14 @@ public class EmprestimoDAO {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}  finally {
+			try {
+				c.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
 		}
 		return false;
 	}
@@ -79,7 +87,7 @@ public class EmprestimoDAO {
 	
 	public void removerEmprestimo(String id) {
 		Connection c = ConexaoDatasource.getConexao();
-		PreparedStatement ps;
+		PreparedStatement ps = null;
 		
 		try {
 			ps = c.prepareStatement("delete from library.emprestimos where idEmprestimo = ?");
@@ -88,16 +96,21 @@ public class EmprestimoDAO {
 			
 			ps.executeUpdate();
 			
-			c.close();
-			ps.close();
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}  finally {
+			try {
+				c.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
 		}
 	}
 	
-	public List<Emprestimo> emprestimoUsuario(int idUsuario){
+	public List<Emprestimo> emprestimoUsuario(String login){
 		Connection c = null;
 		Statement ps = null;
 		ResultSet rs = null;
@@ -107,7 +120,7 @@ public class EmprestimoDAO {
 		try {
 			c = ConexaoDatasource.getConexao();
 			ps = c.createStatement();
-			rs = ps.executeQuery("select * from library.emprestimos where idUsuario = " + idUsuario);
+			rs = ps.executeQuery("select * from library.emprestimos where nomeUsuario = '" +login+ "'");
 			
 			
 			while(rs.next()) {
@@ -127,7 +140,9 @@ public class EmprestimoDAO {
 			try {
 				c.close();
 				ps.close();
+				if(rs != null) {
 				rs.close();
+				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

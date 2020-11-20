@@ -12,11 +12,10 @@
 	<A HREF='${pageContext.request.contextPath}/LivrosDisponiveisServlet'><button>Livros Disponíveis</button></A>
 	<p>
 	<form method="post" action="EmprestimoUsuario">
-		Insira seu ID para consultar emprestimos:
 		<p>
-		<input type="text" name="idUsuario"/>
-		<p>
-		<input type="submit" value="Consultar"/>
+		<input type="submit" value="Consultar Emprestimos"/>
 	</form>
+	<p>
+	<input type="button" value="Voltar ao login" onClick="history.go(-1)">
 </body>
 </html>

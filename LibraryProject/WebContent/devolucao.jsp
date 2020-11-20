@@ -16,5 +16,7 @@
 			<br>
 			<input type="submit" value="Devolver Emprestimo"/>
 		</form>
+		<p>
+	<input type="button" value="Voltar" onClick="history.go(-1)">
 </body>
 </html>

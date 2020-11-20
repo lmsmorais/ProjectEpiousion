@@ -36,14 +36,23 @@ public class UsuarioDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		}   finally {
+			try {
+				c.close();
+				ps.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+		}
 		return false;
 }
 	
 	
 	public boolean inserir(String nomeUsuario, String senhaUsuario) {
 		Connection c = ConexaoDatasource.getConexao();
-		PreparedStatement ps;
+		PreparedStatement ps = null;
 		
 		try {
 			ps = c.prepareStatement("insert into library.usuarios(nomeUsuario, senhaUsuario) values (?,?)");
@@ -62,6 +71,46 @@ public class UsuarioDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}   finally {
+			try {
+				c.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+		}
+		return false;
+	}
+	
+	public boolean remover(int login) {
+		Connection c = ConexaoDatasource.getConexao();
+		PreparedStatement ps = null;
+		
+		try {
+			ps = c.prepareStatement("delete from usuarios where idUsuario = ?");
+			
+			ps.setInt(1, login);
+			
+			int Nlinhas = ps.executeUpdate();
+			
+			if(Nlinhas > 0) {
+				return true;	
+			} else {
+				return false;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				c.close();
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
 		}
 		return false;
 	}
@@ -102,18 +151,17 @@ public class UsuarioDAO {
 		return listaUsuarios;
 	}
 	
-	public boolean emprestimoUsuario(int idUsuario) {
+	public boolean emprestimoUsuario(String login) {
 		Connection c = ConexaoDatasource.getConexao();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
-			ps = c.prepareStatement("select * from library.emprestimos where idUsuario = ?");
+			ps = c.prepareStatement("select * from library.emprestimos where nomeUsuario = ?");
 			
-			ps.setInt(1,idUsuario);
+			ps.setString(1,login);
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
-				idUsuario = rs.getInt("idUsuario");
 				return true;
 			} else {
 				return false;
@@ -122,7 +170,16 @@ public class UsuarioDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		}   finally {
+			try {
+				c.close();
+				ps.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+		}
 		return false;
 	}
 	
